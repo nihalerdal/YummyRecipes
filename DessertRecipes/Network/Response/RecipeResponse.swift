@@ -63,58 +63,26 @@ struct Recipe: Codable {
     let strMeasure20: String?
     
     func createIngredientsArray() -> [String]{
-        var ingredients: [String] = []
-
-        ingredients.append(strIngredient1 ?? "")
-        ingredients.append(strIngredient2 ?? "")
-        ingredients.append(strIngredient3 ?? "")
-        ingredients.append(strIngredient4 ?? "")
-        ingredients.append(strIngredient5 ?? "")
-        ingredients.append(strIngredient6 ?? "")
-        ingredients.append(strIngredient7 ?? "")
-        ingredients.append(strIngredient8 ?? "")
-        ingredients.append(strIngredient9 ?? "")
-        ingredients.append(strIngredient10 ?? "")
-        ingredients.append(strIngredient12 ?? "")
-        ingredients.append(strIngredient13 ?? "")
-        ingredients.append(strIngredient14 ?? "")
-        ingredients.append(strIngredient15 ?? "")
-        ingredients.append(strIngredient16 ?? "")
-        ingredients.append(strIngredient17 ?? "")
-        ingredients.append(strIngredient18 ?? "")
-        ingredients.append(strIngredient19 ?? "")
-        ingredients.append(strIngredient20 ?? "")
-
-        return ingredients.filter({!$0.isEmpty})
-
+        var measures: [String] = []
+        let mirror = Mirror(reflecting: self)
+        
+        for (key, value) in mirror.children{
+           if key?.hasPrefix("strIngredient") == true {
+               measures.append(value as? String ?? "")
+            }
+        }
+        return measures.filter({!$0.isEmpty})
     }
     
-   
-        
     func createMeasuresArray() -> [String]{
         var measures: [String] = []
-
-        measures.append(strMeasure1 ?? "")
-        measures.append(strMeasure2 ?? "")
-        measures.append(strMeasure3 ?? "")
-        measures.append(strMeasure4 ?? "")
-        measures.append(strMeasure5 ?? "")
-        measures.append(strMeasure6 ?? "")
-        measures.append(strMeasure7 ?? "")
-        measures.append(strMeasure8 ?? "")
-        measures.append(strMeasure9 ?? "")
-        measures.append(strMeasure10 ?? "")
-        measures.append(strMeasure11 ?? "")
-        measures.append(strMeasure12 ?? "")
-        measures.append(strMeasure13 ?? "")
-        measures.append(strMeasure14 ?? "")
-        measures.append(strMeasure15 ?? "")
-        measures.append(strMeasure16 ?? "")
-        measures.append(strMeasure17 ?? "")
-        measures.append(strMeasure18 ?? "")
-        measures.append(strMeasure19 ?? "")
-        measures.append(strMeasure20 ?? "")
-
+        let mirror = Mirror(reflecting: self)
+        
+        for (key, value) in mirror.children{
+           if key?.hasPrefix("strMeasure") == true {
+               measures.append(value as? String ?? "")
+            }
+        }
         return measures.filter({!$0.isEmpty})
     }
 }
