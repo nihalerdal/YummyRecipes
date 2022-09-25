@@ -57,6 +57,7 @@ class RecipeVC: UIViewController {
     
     func configureRecipeText(){
         view.addSubview(recipeText)
+        recipeText.isEditable = false
         recipeText.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
