@@ -54,7 +54,7 @@ class DessertListCell: UITableViewCell {
     
     func setImageConstraints(){
         dessertImageView.translatesAutoresizingMaskIntoConstraints                                   = false
-        dessertImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive                           = true
+        dessertImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive             = true
         dessertImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive     = true
         dessertImageView.heightAnchor.constraint(equalToConstant: 80).isActive                       = true
         dessertImageView.widthAnchor.constraint(equalTo: dessertImageView.heightAnchor, multiplier: 16/9).isActive                                                                           = true

@@ -9,7 +9,7 @@ import Foundation
 
 class TheMealDBClient{
     
-    class func getDesserts(completion: @escaping (DessertResponse?, Error?) -> Void){
+    static func getDesserts(completion: @escaping (DessertResponse?, Error?) -> Void){
         let endpoint = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert"
         
         guard let url = URL(string: endpoint) else {return}
